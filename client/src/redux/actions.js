@@ -132,7 +132,9 @@ export const getGenres = () => {
       console.log("There was an error trying to get genres", error);
       dispatch({
         type: GET_GENRES_ERROR,
-        payload: "Impossible to get genres, please try latter.aaaa",
+
+        payload: "Impossible to get genres, please try latter.",
+
       });
     }
   };
