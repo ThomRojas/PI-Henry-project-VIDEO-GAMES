@@ -1,0 +1,25 @@
+body {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+  }
+  
+  .landingPage {
+    color: blanchedalmond;
+    text-decoration-color: aquamarine;
+    height: 100%;
+  }
+
+  .gamerButton {
+    background-color: #e2e2e2;
+    border: 2px solid #dfd9d9;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 3px;
+    width: 100px;
+    height: 53px;
+  }
+  .gamerButton:hover {
+    background-color: #666;
+    color: #fff;
+    cursor: pointer;
+  }
