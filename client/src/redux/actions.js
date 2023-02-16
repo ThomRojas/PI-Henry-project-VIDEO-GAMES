@@ -8,6 +8,12 @@ export const GET_GENRES_ERROR = "GET_GENRES_ERROR";
 export const GET_ALL_VG_ERROR = "GET_ALL_VG_ERROR";
 export const CREATE_VG_SUCCESS = "CREATE_VG_SUCCESS";
 export const CREATE_VG_ERROR = "CREATE_VG_ERROR";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const FILTER_GAMES_BY_GENRES = "FILTER_GAMES_BY_GENRES";
+export const FILTER_DBGAMES_BY_GENRE = "FILTER_DBGAMES_BY_GENRE";
+export const FILTER_APIBD = "FILTER_APIBD";
+export const ORDER_BY_ASC_DES = "ORDER_BY_ASC_DES";
+export const ORDER_BY_RAITING = "ORDER_BY_RAITING";
 
 export const getVG = () => {
   return async (dispatch) => {
@@ -39,7 +45,9 @@ export const getVGName = (name) => {
         throw new Error("The search name is not valid.");
       }
 
-      const response = await axios.get(`http://localhost:3001/videogames?name=${name}`);
+      const response = await axios.get(
+        `http://localhost:3001/videogames?name=${name}`
+      );
 
       if (!response.data || !Array.isArray(response.data)) {
         throw new Error("the returned information was invalid");
@@ -66,7 +74,9 @@ export const getVGDetails = (id) => {
         throw new Error("Wrong ID");
       }
 
-      const response = await axios.get(`http://localhost:3001/videogames/${id}`);
+      const response = await axios.get(
+        `http://localhost:3001/videogames/${id}`
+      );
 
       if (!response.data) {
         throw new Error("Invalid information returned");
@@ -93,7 +103,10 @@ export const createVideogame = (payload) => {
         throw new Error("Invalid information");
       }
 
-      const response = await axios.post(`http://localhost:3001/videogames`, payload);
+      const response = await axios.post(
+        `http://localhost:3001/videogames`,
+        payload
+      );
 
       if (!response.data) {
         throw new Error("invalid information returned");
@@ -136,5 +149,42 @@ export const getGenres = () => {
         payload: "Impossible to get genres, please try latter.",
       });
     }
+  };
+};
+
+const cleanState = () => {
+  return async (dispatch) => {
+    return dispatch({
+      type: "CLEAN_DETAIL",
+      payload: {},
+    });
+  };
+};
+
+export const filterApiBd = (payload) => {
+  return {
+    type: FILTER_APIBD,
+    payload,
+  };
+};
+
+export const filterGamesByGenres = (payload) => {
+  return {
+    type: FILTER_GAMES_BY_GENRES,
+    payload,
+  };
+};
+
+export const orderAscDes = (payload) => {
+  return {
+    type: ORDER_BY_ASC_DES,
+    payload,
+  };
+};
+
+export const orderByRaiting = (payload) => {
+  return {
+    type: ORDER_BY_RAITING,
+    payload,
   };
 };
