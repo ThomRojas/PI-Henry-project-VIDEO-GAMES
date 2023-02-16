@@ -12,7 +12,7 @@ export const CREATE_VG_ERROR = "CREATE_VG_ERROR";
 export const getVG = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("/videogames");
+      const response = await axios.get("http://localhost:3001/videogames");
 
       if (!response.data || !Array.isArray(response.data)) {
         throw new Error("the returned information was invalid");
@@ -39,7 +39,7 @@ export const getVGName = (name) => {
         throw new Error("The search name is not valid.");
       }
 
-      const response = await axios.get(`/videogames?name=${name}`);
+      const response = await axios.get(`http://localhost:3001/videogames?name=${name}`);
 
       if (!response.data || !Array.isArray(response.data)) {
         throw new Error("the returned information was invalid");
@@ -66,7 +66,7 @@ export const getVGDetails = (id) => {
         throw new Error("Wrong ID");
       }
 
-      const response = await axios.get(`/videogames/${id}`);
+      const response = await axios.get(`http://localhost:3001/videogames/${id}`);
 
       if (!response.data) {
         throw new Error("Invalid information returned");
@@ -93,7 +93,7 @@ export const createVideogame = (payload) => {
         throw new Error("Invalid information");
       }
 
-      const response = await axios.post(`/videogames`, payload);
+      const response = await axios.post(`http://localhost:3001/videogames`, payload);
 
       if (!response.data) {
         throw new Error("invalid information returned");
@@ -118,7 +118,7 @@ export const createVideogame = (payload) => {
 export const getGenres = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`/genres`);
+      const response = await axios.get(`http://localhost:3001/genres`);
 
       if (!response.data) {
         throw new Error("Invalid information returned");
@@ -134,8 +134,6 @@ export const getGenres = () => {
         type: GET_GENRES_ERROR,
 
         payload: "Impossible to get genres, please try latter.",
-
-        payload: "Impossible to get genres, please try latter."
       });
     }
   };
