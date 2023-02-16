@@ -159,6 +159,7 @@ export default function Home() {
                 className="cajaIngrDatosLabelEInputInput"
                 onChange={ratingChangeHandler}
                 value={form.rating}
+                multiple={false}
               ></input>
             </div>
 
@@ -169,7 +170,8 @@ export default function Home() {
                 className="cajaIngrDatosLabelEInputSelect"
                 id=""
                 onChange={genresChangeHandler}
-                value={form.genres}
+                value={form.genres.join("")}
+                multiple= {false}
               >
                 <option value="Vacio">Seleccionar</option>
                 {filterGenresVideoGames.map((genre) => (

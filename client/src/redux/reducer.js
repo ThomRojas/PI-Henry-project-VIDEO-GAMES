@@ -64,7 +64,7 @@ function rootReducer(state = initialState, action) {
       }
       return {
         ...state,
-        videogames: filterCreated,
+        videoGames: filterCreated,
       };
     case FILTER_GAMES_BY_GENRES:
       let gamesGenresFilter = state.allVideoGames;

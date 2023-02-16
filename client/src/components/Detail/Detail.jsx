@@ -1,19 +1,31 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { getVGDetails } from "../../redux/actions";
+import { getVGDetails, cleanState } from "../../redux/actions";
 import "./Detail.module.css";
 
 export default function Detail() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
+  
   const detail = useSelector((state) => state.detail);
+  console.log(detail)
+
+  
 
   useEffect(() => {
-    dispatch(getVGDetails(id));
+    const parsedId = parseInt(id);
+    if (isNaN(parsedId)) {
+      // handle invalid id, e.g. show an error message
+    } else {
+      dispatch(getVGDetails(parsedId));
+    }
+    return function clean() {
+      dispatch(cleanState());
+    }
   }, [dispatch, id]);
-
+  
   function handleBack(event) {
     event.preventDefault();
     history.goBack();
@@ -32,7 +44,7 @@ export default function Detail() {
       <div className="Caja">
         <img className="imagen" src={detail.image} alt="imagen" />
         <div>
-          <p>Genres: {detail.genres?.map((g) => g)}</p>
+          <p>Genres: {detail.genres}</p>
           <p>Released: {detail.released} </p>
           <p>Rating: {detail.rating}</p>
           <p>PLATFORMS: {detail.platform?.join(" - ")}</p>

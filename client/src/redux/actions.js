@@ -152,7 +152,7 @@ export const getGenres = () => {
   };
 };
 
-const cleanState = () => {
+export const cleanState = () => {
   return async (dispatch) => {
     return dispatch({
       type: "CLEAN_DETAIL",
