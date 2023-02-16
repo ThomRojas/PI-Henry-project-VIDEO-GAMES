@@ -46,7 +46,7 @@ export default function Home() {
         <div className="home" >
             <div className="navbar">
             <Link to="/" className="navbarlink"><h1 className="title" >VIDEOGAMES</h1></Link>
-            {/* <SearchBar></SearchBar> */}
+            <SearchBar></SearchBar>
             <Link className="navbarlink" to='/createvideogame'>
                 <h2 >Create a new VideoGame</h2>
             </Link>
@@ -103,12 +103,12 @@ export default function Home() {
                     </div>
                 </div>
                 <br />
-                {/* <Paginate
+                <Paginate
                     videogamesPerPage={videoGamesPerPage}
                     allVideogames={allVideoGames.length}
                     paginated={paginated}
                     currentPages={currentPage}
-                /> */}
+                />
 
                 <div className="cajaCards">
 
@@ -128,12 +128,12 @@ export default function Home() {
                             
                 }
                 </div>
-                {/* <Paginate
+                <Paginate
                     videogamesPerPage={videoGamesPerPage}
                     allVideogames={allVideoGames.length}
                     paginated={paginated}
                     currentPages={currentPage}
-                /> */}
+                />
                     
 
             </div>
