@@ -1,25 +1,152 @@
-body {
-    height: 100%;
+.landingPageContainer {
+    height: 717px;
+    width: 100%;
     margin: 0;
     background-color: black;
+    color: white
   }
   
   .landingPage {
     color: blanchedalmond;
     text-decoration-color: aquamarine;
-    height: 100%;
+   
   }
 
-  .gamerButton {
-    background-color: #e2e2e2;
-    border: 2px solid #dfd9d9;
-    font-family: 'Press Start 2P', cursive;
-    border-radius: 3px;
-    width: 100px;
-    height: 53px;
+  @keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
   }
-  .gamerButton:hover {
-    background-color: #666;
-    color: #fff;
+
+  /* .gamerButton {
+    background-color: black;
     cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 4px;
   }
+
+  .gamerButton:hover {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        red, blue, pink, blue,
+        red, blue, pink, blue
+    );
+    background-size: 800%;
+    border-radius: 10px;
+    filter:blur(8px);
+    animation: glowing linear infinite linear
+  } */
+
+  
+
+  .headerContainer{
+    width: 99%;
+    height: 200px;
+    margin: 4px 2px 2px 2px;
+  }
+
+  .logoImg{
+    width: 155px;
+    height: 145px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 22px;
+    margin-left: 10px;
+  }
+
+  .img{
+    width: 550px;
+    height: 400px;
+    
+    
+  }
+
+
+  .btnNeon{
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #dadbdd;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    /* transition: 0.2s; */
+}
+.btnNeon:hover{
+    background: #4479be;
+    box-shadow: 0 0 10px #4479be, 0 0 40px #4479be, 0 0 80px #4479be;
+    /* transition-delay: 1s; */
+ }
+.btnNeon span{
+    position: absolute;
+    display: block;
+}
+#span1{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent,#4479be);
+ }
+ .btnNeon:hover #span1{
+    left: 100%;
+    /* transition: 1s; */
+}
+ #span3{
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent,#4479be);
+}
+ .btnNeon:hover #span3{
+    right: 100%;
+    /* transition: 1s;
+    transition-delay: 0.5s; */
+}
+#span2{
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#4479be);
+}
+.btnNeon:hover #span2{
+    top: 100%;
+    /* transition: 1s;
+    transition-delay: 0.25s; */
+}
+#span4{
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#4479be);
+}
+.btnNeon:hover #span4{
+    bottom: 100%;
+    /* transition: 1s;
+    transition-delay: 0.75s; */
+}
+
+
+  

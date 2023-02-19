@@ -12,7 +12,7 @@ import {
   orderAscDes,
   orderByRaiting,
 } from "../../redux/actions";
-import "./Home.module.css";
+import styles from "./Home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ export default function Home() {
   }
 
   function handleGamesByGenres(e) {
-    dispatch(filteredGenres(e.target.value));
+    dispatch(filterGamesByGenres(e.target.value));
     setCurrentPage(1);
   }
 
@@ -82,20 +82,20 @@ export default function Home() {
   }
   return (
     <div className="home">
-      <div className="navbar">
-        <Link to="/" className="navbarlink">
-          <h1 className="title">VIDEOGAMES</h1>
+      <div className={styles.navbar}>
+        <Link to="/" className={styles.navbarlink}>
+          <h1 className={styles.title}>VIDEOGAMES</h1>
         </Link>
         <SearchBar></SearchBar>
-        <Link className="navbarlink" to="/createvideogame">
+        <Link className={styles.navbarlink} to="/createvideogame">
           <h2>Create a new VideoGame</h2>
         </Link>
       </div>
 
       <div>
-        <div className="filtros">
+        <div className={styles.filtros}>
           <button
-            className="btnhome"
+            className={styles.btnhome}
             onClick={(e) => {
               handleClickRefresh(e);
             }}
@@ -106,9 +106,9 @@ export default function Home() {
             <h4>Genres</h4>
             {/* Aca Va el listado de los Generos */}
             <select
-              className="select"
+              className={styles.select}
               onChange={(event) => handleGamesByGenres(event)}
-              multiple={false}
+              
             >
               <option name="All">All</option>
               {filteredGenres.map((genre) => (
@@ -124,7 +124,7 @@ export default function Home() {
 
             {/* Aca Va el listado Creados por BD o por Nosotros */}
             <select
-              className="select"
+              className={styles.select}
               onChange={(event) => handlefilterApiBd(event)}
               multiple={false}
             >
@@ -138,7 +138,7 @@ export default function Home() {
             <h4>Alphabetical</h4>
 
             <select
-              className="select"
+              className={styles.select}
               onChange={(event) => handleorderAscDes(event)}
               multiple={false}
             >
@@ -151,7 +151,7 @@ export default function Home() {
           <div>
             <h4>Rating</h4>
             <select
-              className="select"
+              className={styles.select}
               onChange={(event) => handleOrderByRaiting(event)}
               
             >

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getVGDetails, cleanState } from "../../redux/actions";
-import "./Detail.module.css";
+import styles from "./Detail.module.css";
 
 export default function Detail() {
   const dispatch = useDispatch();
@@ -40,9 +40,9 @@ export default function Detail() {
   }
 
   return (
-    <div className="body">
-      <div className="Caja">
-        <img className="imagen" src={detail.image} alt="imagen" />
+    <div className={styles.body}>
+      <div className={styles.Caja}>
+        <img className={styles.imagen} src={detail.image} alt="imagen" />
         <div>
           <p>Genres: {detail.genres}</p>
           <p>Released: {detail.released} </p>
@@ -50,12 +50,12 @@ export default function Detail() {
           <p>PLATFORMS: {detail.platform?.join(" - ")}</p>
         </div>
         <br />
-        <div className="titulos">
+        <div className={styles.titulos}>
           <h1>
             {detail.name} - Details
           </h1>
         </div>
-        <div className="description">{detail.description}</div>
+        <div className={styles.description}>{detail.description}</div>
         <button className="btn" onClick={handleBack}>
           Go Back
         </button>

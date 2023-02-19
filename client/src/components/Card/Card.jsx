@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./Card.module.css"
 
 export default function Card({ game }) {
   const { id, image, name, genres, rating } = game;
@@ -7,9 +8,9 @@ export default function Card({ game }) {
 
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <a href={`/detail/${id}`} style={{ textDecoration: "none" }}>
-        <img key={game.id} src={image} alt={name} style={{ width: "350px" }} />
+    <div className={styles.Cards}>
+      <a href={`/detail/${id}`} className={styles.Card}>
+        <img key={game.id} src={image} alt={name} className={styles.img} />
         <h2>{name}</h2>
         <h4>Genres: {genres}</h4>
         <h4>Rating: {rating}</h4>

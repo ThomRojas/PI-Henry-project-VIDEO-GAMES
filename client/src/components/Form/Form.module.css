@@ -1,0 +1,73 @@
+
+
+
+ .divBodyContainer{
+    
+    position: relative;
+    margin: auto;
+    text-align: center;
+    background-color: #1f1e1e;
+    width: 750px;
+    height: 700px;
+    border-radius: 10px;
+    border: 1px solid rgb(72, 188, 218);
+    margin-top: 10px;
+    box-shadow: 0 3px 3px 0 rgb(87, 165, 218), 
+              0 5px 3px -4px rgb(68, 151, 184), 
+              0 3px 7px 0 rgb(45, 95, 136);
+    font-family: 'Games', sans-serif;
+}
+
+.cajaTituloHuno{
+    font-family: 'Games', sans-serif;
+    color: rgb(42, 149, 192);
+    text-align: center;
+}
+
+.span{
+    color:rgb(42, 149, 192);
+    margin-left: 10px;
+    margin-bottom: 5px;
+    vertical-align: 1px;
+    
+    
+    /* text-align: center; */
+}
+
+.releaseBox{
+    margin-left: 20px;
+}
+
+.spanRelease{
+    color:rgb(42, 149, 192);
+    margin-left: -56px;
+    margin-bottom: 5px;
+    vertical-align: 1px;
+  
+}
+
+.spanDescription{
+    background-color: transparent;
+    margin-bottom: 10px;
+    color: rgb(134, 30, 30);
+    background-color: rgb(112, 117, 117);
+    margin-left: 20px;
+    color:rgb(42, 149, 192);
+    margin-left: 10px;
+    margin-bottom: 5px;
+    vertical-align: -14px;
+}
+
+.divContainerBox{
+    text-align: center;
+    
+    
+}
+
+.box{
+    background-color: transparent;
+    margin-bottom: 10px;
+    color: rgb(134, 30, 30);
+    background-color: rgb(112, 117, 117);
+    margin-left: 44px;
+}

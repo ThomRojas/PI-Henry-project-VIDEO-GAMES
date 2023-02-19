@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       image: {
         type: DataTypes.STRING,
         defaultValue:
-          "https://www.canva.com/design/DAFaIbdn4tU/A-XDYmniGVG7VVEgPf4UXg/edit?utm_content=DAFaIbdn4tU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+          "https://i.postimg.cc/g2PftfBG/Videogames-1.png",
         allowNull: false,
       },
       description: {
