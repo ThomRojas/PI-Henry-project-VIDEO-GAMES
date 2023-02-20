@@ -102,13 +102,13 @@ export default function Home() {
       handleClickRefresh(e);
     }}
   >
-    Refresh
+    ↻
   </button>
 
   <div className={styles.filterSection}>
-    <h4>Genres</h4>
+    <h4>GENRES</h4>
     <select
-      className={styles.select}
+      className={styles.selectGamer}
       onChange={(event) => handleGamesByGenres(event)}
     >
       <option name="All">All</option>
@@ -121,22 +121,22 @@ export default function Home() {
   </div>
 
   <div className={styles.filterSection}>
-    <h4>API or CREATED</h4>
+    <h4>API || DBB</h4>
     <select
-      className={styles.select}
+      className={styles.selectGamer}
       onChange={(event) => handlefilterApiBd(event)}
       multiple={false}
     >
       <option value="All">All</option>
       <option value="API">Api</option>
-      <option value="Created">BD</option>
+      <option value="Created">DBB</option>
     </select>
   </div>
 
   <div className={styles.filterSection}>
-    <h4>Alphabetical</h4>
+    <h4>A - Z || Z - A</h4>
     <select
-      className={styles.select}
+      className={styles.selectGamer}
       onChange={(event) => handleorderAscDes(event)}
       multiple={false}
     >
@@ -147,9 +147,9 @@ export default function Home() {
   </div>
 
   <div className={styles.filterSection}>
-    <h4>Rating</h4>
+    <h4>RATING</h4>
     <select
-      className={styles.select}
+      className={styles.selectGamer}
       onChange={(event) => handleOrderByRaiting(event)}
     >
       <option value="All">All</option>
