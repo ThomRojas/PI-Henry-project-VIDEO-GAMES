@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { createVideogame, getGenres } from "../../redux/actions";
+import { createVideogame, getGenres, getVG } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Form.module.css";
 
@@ -9,9 +9,12 @@ export default function Home() {
   const history = useHistory();
   const filterGenresVideoGames = useSelector((state) => state.genres);
 
+
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
+
+  
 
   const [form, setForm] = useState({
     name: "",

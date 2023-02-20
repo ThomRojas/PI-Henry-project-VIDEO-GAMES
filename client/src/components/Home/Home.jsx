@@ -19,6 +19,8 @@ export default function Home() {
   const allVideoGames = useSelector((state) => state.videoGames);
   const filteredGenres = useSelector((state) => state.genres);
 
+
+  
   const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -81,7 +83,7 @@ export default function Home() {
     return <div>Loading</div>;
   }
   return (
-    <div className="home">
+    <div className={styles.divContainer}>
       <div className={styles.navbar}>
         <Link to="/" className={styles.navbarlink}>
           <h1 className={styles.title}>VIDEOGAMES</h1>
@@ -93,74 +95,69 @@ export default function Home() {
       </div>
 
       <div>
-        <div className={styles.filtros}>
-          <button
-            className={styles.btnhome}
-            onClick={(e) => {
-              handleClickRefresh(e);
-            }}
-          >
-            Refresh
-          </button>
-          <div>
-            <h4>Genres</h4>
-            {/* Aca Va el listado de los Generos */}
-            <select
-              className={styles.select}
-              onChange={(event) => handleGamesByGenres(event)}
-              
-            >
-              <option name="All">All</option>
-              {filteredGenres.map((genre) => (
-                <option key={genre.id} value={genre.name}>
-                  {genre.name}
-                </option>
-              ))}
-            </select>
-          </div>
+      <div className={styles.filtros}>
+  <button
+    className={styles.btnhome}
+    onClick={(e) => {
+      handleClickRefresh(e);
+    }}
+  >
+    Refresh
+  </button>
 
-          <div>
-            <h4>API or CREATED</h4>
+  <div className={styles.filterSection}>
+    <h4>Genres</h4>
+    <select
+      className={styles.select}
+      onChange={(event) => handleGamesByGenres(event)}
+    >
+      <option name="All">All</option>
+      {filteredGenres.map((genre) => (
+        <option key={genre.id} value={genre.name}>
+          {genre.name}
+        </option>
+      ))}
+    </select>
+  </div>
 
-            {/* Aca Va el listado Creados por BD o por Nosotros */}
-            <select
-              className={styles.select}
-              onChange={(event) => handlefilterApiBd(event)}
-              multiple={false}
-            >
-              <option value="All">All</option>
-              <option value="API">Api</option>
-              <option value="Created">BD</option>
-            </select>
-          </div>
+  <div className={styles.filterSection}>
+    <h4>API or CREATED</h4>
+    <select
+      className={styles.select}
+      onChange={(event) => handlefilterApiBd(event)}
+      multiple={false}
+    >
+      <option value="All">All</option>
+      <option value="API">Api</option>
+      <option value="Created">BD</option>
+    </select>
+  </div>
 
-          <div>
-            <h4>Alphabetical</h4>
+  <div className={styles.filterSection}>
+    <h4>Alphabetical</h4>
+    <select
+      className={styles.select}
+      onChange={(event) => handleorderAscDes(event)}
+      multiple={false}
+    >
+      <option value="All">All</option>
+      <option value="ascendente">A - Z</option>
+      <option value="descendente">Z - A</option>
+    </select>
+  </div>
 
-            <select
-              className={styles.select}
-              onChange={(event) => handleorderAscDes(event)}
-              multiple={false}
-            >
-              <option value="All">All</option>
-              <option value="ascendente">A - Z</option>
-              <option value="descendente">Z - A</option>
-            </select>
-          </div>
-
-          <div>
-            <h4>Rating</h4>
-            <select
-              className={styles.select}
-              onChange={(event) => handleOrderByRaiting(event)}
-              
-            >
-              <option value="All">All</option>
-              <option value="raitingmenor">Mayor a Menor</option>
-              <option value="raitingmayor">Menor a Mayor</option>
-            </select>
-          </div>
-        </div>
+  <div className={styles.filterSection}>
+    <h4>Rating</h4>
+    <select
+      className={styles.select}
+      onChange={(event) => handleOrderByRaiting(event)}
+    >
+      <option value="All">All</option>
+      <option value="raitingmenor">Mayor a Menor</option>
+      <option value="raitingmayor">Menor a Mayor</option>
+    </select>
+  </div>
+</div>
         <br />
         <Paginate
           videogamesPerPage={videoGamesPerPage}
