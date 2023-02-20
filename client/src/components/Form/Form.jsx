@@ -113,157 +113,161 @@ export default function Home() {
   return (
     <form onSubmit={submitHandle}>
       <div className={styles.divBodyContainer}>
-        <div className="cajaTitulo">
-          <h1 className={styles.cajaTituloHuno}> Create a new VideoGame </h1>
+        <div className={styles.titleContainer}>
+          <h1>Create a new VideoGame</h1>
+        </div>
+        <div>
+          <div className={styles.divName}>
+            <span> Name </span>
+          </div>
+          <div>
+            <input
+              className={styles.inputName}
+              required="required"
+              type="text"
+              onChange={nameChangeHandler}
+              value={form.name}
+              placeholder="VideoGame Name"
+            />
+          </div>
+        </div>
+        <div>
+          <div className={styles.divName}>
+            <span> Description </span>
+          </div>
+          <div>
+            <input
+              className={styles.inputName}
+              required="required"
+              type="text"
+              onChange={descriptionChangeHandler}
+              value={form.description}
+              placeholder="VideoGame Description"
+            />
+          </div>
+        </div>
+        <div className={styles.divName}>
+          <span>Release </span>
+        </div>
+        <div>
+          <input
+            className={styles.inputName}
+            type="date"
+            id="releasedDate"
+            onChange={releasedChangeHandler}
+            value={form.released}
+          />
+        </div>
+        <div className={styles.divName}>
+          <span>Rating </span>
+        </div>
+        <div>
+          <input
+            type="number"
+            className={styles.inputName}
+            onChange={ratingChangeHandler}
+            value={form.rating}
+            multiple={false}
+            placeholder="Rating"
+          />
+        </div>
+        <div className={styles.divName}>
+          <span>Genres </span>
+        </div>
+        <div>
+          <select
+            name=""
+            className={styles.inputName}
+            id=""
+            onChange={genresChangeHandler}
+            value={form.genres.join("")}
+            multiple={false}
+          >
+            <option value="Vacio">Choose</option>
+            {filterGenresVideoGames.map((genre) => (
+              <option key={genre.id} value={genre.name}>
+                {genre.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className={styles.divName}>
+          <span> Platfomrs </span>
         </div>
 
-        <div className="styles.cajaTituloHuno">
-          <div className="inputBox">
+        <div>
+          <select
+            name=""
+            className={styles.inputName}
+            id=""
+            onChange={platformsChangeHandler}
+            value={form.platform}
+          >
+            <option value="Vacio">Choose</option>
+            <option value="PC">PC</option>
+            <option value="Nintendo">Nintendo</option>
+            <option value="Nintendo switch">Nintendo switch</option>
+            <option value="Xbox 360">Xbox 360</option>
+            <option value="Play Station">Play Station</option>
+            <option value="Play Station 2">Play Station 2</option>
+            <option value="Play Station 3">Play Station 3</option>
+            <option value="Play Station 4">Play Station 4</option>
+            <option value="Xbox One">Xbox One</option>
+            <option value="Xbox Series">Xbox Series</option>
+          </select>
+        </div>
 
-
-          <div>
-            <div className={styles.divContainerBox}>
-              <span className={styles.span}> Name </span>
-                <input
-                    className={styles.box}
-                    required="required"
-                    type="text"
-                    onChange={nameChangeHandler}
-                    value={form.name}
-              />
+        <div className={styles.divNameGenresSelected}>
+          <span> Genres selected </span>
+        </div>
+        <div>
+          {form.genres.map((elemet) => (
+            <div className={styles.spanElementsGenres}>
+              <span>{elemet}</span>
+              <button
+                className={styles.spanShowSelectionButton}
+                onClick={deleteGenresHandler}
+                id={elemet}
+              >
+                x
+              </button>
             </div>
-          </div>
-            <br/>
+          ))}
+        </div>
 
-          <div>
-            <div className={styles.divContainerBox}>
-              <span className={styles.span}> Description </span>
-                <textarea
-                    type="text"
-                    className={styles.spanDescription}
-                    onChange={descriptionChangeHandler}
-                    value={form.description}
-                    placeholder="Description"
-                />
+        <div className={styles.divNameGenresSelected}>
+          <span> Platforms selected </span>
+        </div>
+        <div>
+          {form.platform.map((elemet) => (
+            <div className={styles.spanElementsGenres}>
+              <span>{elemet}</span>
+              <button
+                className={styles.spanShowSelectionButton}
+                onClick={deletePlaformsHandler}
+                id={elemet}
+              >
+                x
+              </button>
             </div>
-          </div>
-          <br/>
+          ))}
+        </div>
 
-            <div>
-              <div className={styles.divContainerBox}>
-                <span className={styles.spanRelease}>Release </span>
-                <input
-                  type="date"
-                  className={styles.releaseBox}
-                  id="releasedDate"
-                  onChange={releasedChangeHandler}
-                  value={form.released}
-                />
-              </div>
-            </div>
-            <br/>
+        <div>{error && <p>{error}</p>}</div>
 
-
-            <div className="styles.cajaTituloHuno">      
-              <span className={styles.span}> Rating  </span>
-                <input
-                  type="number"
-                  className={styles.box}
-                  onChange={ratingChangeHandler}
-                  value={form.rating}
-                  multiple={false}
-                  placeholder="Rating"
-                />
-            </div>
-            <br/>
-
-            <div>
-              <span className={styles.span}> Genres </span>
-                <select
-                  name=""
-                  className={styles.box}
-                  id=""
-                  onChange={genresChangeHandler}
-                  value={form.genres.join("")}
-                  multiple={false}
-                >
-                <option value="Vacio">Choose</option>
-                {filterGenresVideoGames.map((genre) => (
-                  <option key={genre.id} value={genre.name}>
-                    {genre.name}
-                </option>
-                ))}
-              </select>
-            </div>
-            <br/>
-
-           
-            <div>
-              <span className={styles.span}> Platfomrs </span>
-                <select
-                  name=""
-                  className={styles.box}
-                  id=""
-                  onChange={platformsChangeHandler}
-                  value={form.platform}
-                >
-                  <option value="Vacio">Choose</option>
-                  <option value="PC">PC</option>
-                  <option value="Nintendo">Nintendo</option>
-                  <option value="Nintendo switch">Nintendo switch</option>
-                  <option value="Xbox 360">Xbox 360</option>
-                  <option value="Play Station">Play Station</option>
-                  <option value="Play Station 2">Play Station 2</option>
-                  <option value="Play Station 3">Play Station 3</option>
-                  <option value="Play Station 4">Play Station 4</option>
-                  <option value="Xbox One">Xbox One</option>
-                  <option value="Xbox Series">Xbox Series</option>
-                </select>
-            </div>
-            <br/>
-
-            
-            <div>
-            <span className={styles.span}> Genres </span>
-              {form.genres.map((elemet) => (
-                  <div>
-                    <span>{elemet}</span>
-                    <button
-                      className="btn"
-                      onClick={deleteGenresHandler}
-                      id={elemet}
-                    >
-                      x
-                    </button>
-                  </div>
-                ))}
-            </div>
-            <br/>
-            
-          </div>
-
-          
-            <div>
-              <span className={styles.span}> Platforms </span>
-              {form.platform.map((elemet) => (
-                <div>
-                  <span>{elemet}</span>
-                  <button onClick={deletePlaformsHandler} id={elemet}>
-                    x
-                  </button>
-                </div>
-              ))}
-            </div>
-            <br/>
-
-          <div className="styles.cajaTituloHuno">{error && <p>{error}</p>}</div>
-
-          <nav className="styles.cajaTituloHuno">
-            <button onClick={backHandler}>Atras</button>
+        <div>
+          <nav >
+            <button 
+            type="button"
+            className={styles.buttonsBacks} 
+            onClick={backHandler}
+            >
+              Atras
+              </button>
 
             <button
+              className={styles.buttons}
               type="submit"
-              className="botonCrearVideoGame"
               disabled={
                 !form.name ||
                 !form.description ||
