@@ -68,11 +68,7 @@
     color: aqua;
     border-radius: 4px;
 }
-.buttonsBack:hover{
-    background-color: aliceblue;
-    color: black;
-    cursor: pointer;
-}
+
 
 /* .cajaTituloHuno{
     font-family: 'Games', sans-serif;

@@ -24,6 +24,8 @@ export default function Home() {
   });
 
   const [error, setError] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
 
   const nameChangeHandler = (event) => {
     const nameValue = event.target.value;
@@ -104,7 +106,10 @@ export default function Home() {
 
   const submitHandle = (event) => {
     event.preventDefault();
-    console.log(form);
+    const isFormValid = form.name && form.description && form.released && form.rating && form.platform.length && !error;
+
+   
+    setIsValid(isFormValid);
     dispatch(createVideogame(form));
     alert("Videogame has been submitted successfully");
     history.push("/home");
@@ -262,11 +267,11 @@ export default function Home() {
             className={styles.buttonsBacks} 
             onClick={backHandler}
             >
-              Atras
+              BACK
               </button>
 
             <button
-              className={styles.buttons}
+              className={`${styles.button} ${isValid? styles.button:""}`}
               type="submit"
               disabled={
                 !form.name ||
@@ -279,7 +284,7 @@ export default function Home() {
                   : false
               }
             >
-              CREAR
+              CREATE
             </button>
           </nav>
         </div>
