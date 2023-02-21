@@ -9,22 +9,18 @@ export default function Detail() {
   const history = useHistory();
   const { id } = useParams();
   
-  const detail = useSelector((state) => state.detail);
-  console.log(detail)
-
+  console.log(id, "id")
   
 
   useEffect(() => {
-    const parsedId = parseInt(id);
-    if (isNaN(parsedId)) {
-      // handle invalid id, e.g. show an error message
-    } else {
-      dispatch(getVGDetails(parsedId));
-    }
+    dispatch(getVGDetails(id));
     return function clean() {
-      dispatch(cleanState());
+        dispatch(cleanState())
     }
-  }, [dispatch, id]);
+}, [dispatch, id])
+
+const detail = useSelector((state) => state.detail);
+
   
   function handleBack(event) {
     event.preventDefault();
@@ -39,6 +35,11 @@ export default function Detail() {
     );
   }
 
+  // console.log(`ID in URL: ${id}`);
+  // console.log(`ID in detail: ${detail.id}`);
+  // console.log(detail, "detail");
+
+  
   return (
     <div className={styles.body}>
       <div className={styles.Caja}>

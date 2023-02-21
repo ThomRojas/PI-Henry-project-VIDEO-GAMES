@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_ALL_VG = "GET_ALL_VG";
 export const GET_VG_NAME = "GET_VG_NAME";
 export const GET_VG_DETAILS = "GET_VG_DETAILS";
+export const GET_VG_DETAILS_ERROR = "GET_VG_DETAILS_ERROR"
 export const GET_GENRES = "GET_GENRES";
 export const GET_GENRES_ERROR = "GET_GENRES_ERROR";
 export const GET_ALL_VG_ERROR = "GET_ALL_VG_ERROR";
@@ -70,27 +71,24 @@ export const getVGName = (name) => {
 export const getVGDetails = (id) => {
   return async (dispatch) => {
     try {
-      if (!id || typeof id !== "number") {
-        throw new Error("Wrong ID");
+      const response = await axios.get(`http://localhost:3001/videogames/${id}`);
+      
+      if (response.status === 404) {
+        throw new Error("Video game not found");
       }
-
-      const response = await axios.get(
-        `http://localhost:3001/videogames/${id}`
-      );
-
-      if (!response.data) {
-        throw new Error("Invalid information returned");
+      
+      if (typeof response.data === "string" && response.data === "Error") {
+        throw new Error("Error retrieving video game details");
       }
-
-      return dispatch({
+      
+      dispatch({
         type: GET_VG_DETAILS,
         payload: response.data,
       });
     } catch (error) {
-      console.log("There was an error trying to get VideoGame detail", error);
-      return dispatch({
-        type: GET_ALL_VG_ERROR,
-        payload: "Detail search not complete, please try again latter",
+      dispatch({
+        type: "GET_VIDEOGAME_DETAILS_ERROR",
+        payload: error.message,
       });
     }
   };

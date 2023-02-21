@@ -159,12 +159,7 @@ export default function Home() {
   </div>
 </div>
         <br />
-        <Paginate
-          videogamesPerPage={videoGamesPerPage}
-          allVideogames={allVideoGames.length}
-          paginated={paginated}
-          currentPages={currentPage}
-        />
+        
 
         <div className={styles.cardContainer}>
           {currentVideoGames === "404" ? (
