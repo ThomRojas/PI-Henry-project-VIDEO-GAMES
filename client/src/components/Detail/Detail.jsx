@@ -56,7 +56,7 @@ export default function Detail() {
           </h1>
         </div>
         <div className={styles.description}>{detail.description}</div>
-        <button className="btn" onClick={handleBack}>
+        <button className={styles.btn} onClick={handleBack}>
           Go Back
         </button>
       </div>

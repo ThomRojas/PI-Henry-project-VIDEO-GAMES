@@ -166,7 +166,7 @@ export default function Home() {
           currentPages={currentPage}
         />
 
-        <div className="cajaCards">
+        <div className={styles.cardContainer}>
           {currentVideoGames === "404" ? (
             <h1>Not Found Videogames whith this name.</h1>
           ) : (

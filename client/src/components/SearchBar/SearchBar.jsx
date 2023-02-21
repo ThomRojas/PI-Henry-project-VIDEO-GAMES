@@ -21,17 +21,21 @@ export default function SearchBar() {
   const debouncedInputHandler = debounce(inputVideogameHandler, 500);
 
   return (
-    <div className="search">
-      <label htmlFor="searchTerm">Search Videogame:</label>
-      <input
-        id="searchTerm"
-        className="searchTerm"
-        type="text"
-        onChange={debouncedInputHandler}
-        onFocus={(e) => e.target.select()}
-        placeholder="Enter videogame name"
-      />
-      {errorMessage && <p>{errorMessage}</p>}
+    <div>
+      <div className="search">
+        <label htmlFor="searchTerm">Search Videogame </label>
+      </div>
+      <div>
+        <input
+          id="searchTerm"
+          className="searchTerm"
+          type="text"
+          onChange={debouncedInputHandler}
+          onFocus={(e) => e.target.select()}
+          placeholder="Enter videogame name"
+        />
+        {errorMessage && <p>{errorMessage}</p>}
+      </div>
     </div>
   );
 }
