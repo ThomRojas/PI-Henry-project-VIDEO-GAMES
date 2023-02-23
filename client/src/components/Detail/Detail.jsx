@@ -35,10 +35,6 @@ const detail = useSelector((state) => state.detail);
     );
   }
 
-  // console.log(`ID in URL: ${id}`);
-  // console.log(`ID in detail: ${detail.id}`);
-  // console.log(detail, "detail");
-
   
   return (
     <div className={styles.body}>

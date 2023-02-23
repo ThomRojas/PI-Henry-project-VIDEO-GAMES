@@ -109,9 +109,9 @@ export default function Home() {
     <h4>GENRES</h4>
     <select
       className={styles.selectGamer}
-      onChange={(event) => handleGamesByGenres(event)}
+      onChange={handleGamesByGenres}
     >
-      <option name="All">All</option>
+      <option value="All">All</option>
       {filteredGenres.map((genre) => (
         <option key={genre.id} value={genre.name}>
           {genre.name}
